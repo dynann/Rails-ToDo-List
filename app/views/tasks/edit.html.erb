@@ -1,0 +1,12 @@
+<% content_for :title, "Editing task" %>
+
+<h1 style="font-family: 'Poppins', sans-serif; color: #333;">Editing task</h1>
+
+<%= render "form", task: @task %>
+
+<br>
+
+<div style="margin-top: 20px; font-family: 'Poppins', sans-serif;">
+  <%= link_to "Show this task", @task, style: "background-color: #0080FF; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px;" %> |
+  <%= link_to "Back to tasks", tasks_path, style: "background-color: #888888; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px;" %>
+</div>
