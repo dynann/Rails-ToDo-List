@@ -23,7 +23,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @categories = Category.all
     if @task.save
-      redirect_to task_path(@task), notice: "Task successfully created."
+      redirect_to task_path(@task)
       # format.html { redirect_to @task, notice: "Task was successfully created." }
     else
       render :new
@@ -64,5 +64,13 @@ class TasksController < ApplicationController
   #allow only which parameteres are accessible 
   def task_params
     params.require(:task).permit(:name, :category_id, :is_completed)
+  end
+  def is_done
+    @task =Task.find(params[:id])
+    if @task.is_completed?
+      @task.is_completed = 0
+    else
+      @task.is_completed = 1
+    end
   end
 end

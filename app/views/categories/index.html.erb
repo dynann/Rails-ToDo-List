@@ -6,11 +6,15 @@
 
 <div id="categories">
   <% @categories.each do |category| %>
+  <div style="border:1px solid black; border-radius: 10px;padding: 20px;"
     <%= render category %>
     <p>
-      <%= link_to "Show this category", category %>
+      <%= link_to "Show this category", category, style: "background-color: #00995f; color: white; padding: 10px 20px; text-decoration: none; margin: 5px 0;border-radius: 5px;"%>
     </p>
+    </div>
   <% end %>
 </div>
-
-<%= link_to "New category", new_category_path %>
+<div style="display:flex; flex-direction: row; justify-content: space-between; margin-top: 10px; padding: 0 20px">
+<%= link_to "New category", new_category_path, style: "background-color: #00995f; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;" %>
+<%= link_to "Back to Task", tasks_path, style: "background-color: #00995f; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;" %>
+</div>

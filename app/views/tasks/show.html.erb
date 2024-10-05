@@ -1,11 +1,14 @@
 
-<h1>Task Detail</h1>
+<h1 style="font-family: 'Poppins', sans-serif; color: #333; text-align: center; margin-bottom: 30px;">Task Detail</h1>
+<div class="form-container" style="max-width: fit-content; margin: 10px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; background-color: #f9f9f9;">
 <table>
   <thead>
     <tr>
       <th>Task Name</th>
       <th>Category</th>
       <th>Is Done</th>
+      <th>Created</th>
+      <th>Updated</th>
       <th>Customize</th>
     </tr>
   </thead>
@@ -14,12 +17,17 @@
       <td><%= @task.name %></td>
       <td><%= @task.category.name %></td>
       <td><%= @task.is_completed? ? 'Yes' : 'No' %></td>
+      <td><%=  @task.created_at.strftime("%Y-%m-%d") %></td>
+      <td><%=  @task.updated_at.strftime("%Y-%m-%d") %></td>
       <td style="display: flex; justify-content: space-between;">
-        <%= link_to 'Edit', edit_task_path(@task),  style: "background-color: #0080FF; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;" %>
-        <%= link_to 'Back to Tasks', tasks_path, style: "background-color: #0080FF; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;" %>
-        <%= button_to 'Delete', @category, method: :delete,  style: "background-color: red; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;" %>
+        <%= link_to 'Edit', edit_task_path(@task),  style: "height: 100%; background-color: #0080FF; color: white; margin: 2px; padding: 10px 20px; text-decoration: none; border-radius: 5px;" %>
+        <%= link_to 'Back to Tasks', tasks_path, style: "height: 100%; background-color: #0080FF; color: white;margin: 2px; padding: 10px 20px; text-decoration: none; border-radius: 5px;" %>
+        <%= button_to 'Delete', @category, method: :delete,  style: "height: 100%; background-color: red; color: margin: 2px;white; padding: 10px 20px; text-decoration: none; border-radius: 5px;" %>
+
       </td>
+
     </tr>
   </tbody>
 </table>
+</div>
 

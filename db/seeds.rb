@@ -9,4 +9,5 @@
 #   end
 Category.create(name: "Business")
 Category.create(name: "Personal")
-Category.create(name: "Shopping")  
+Category.create(name: "Shopping") 
+Category.create(name: ")
