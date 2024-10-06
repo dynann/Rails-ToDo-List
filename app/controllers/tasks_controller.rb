@@ -1,9 +1,14 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :toggle_completion]
 
   #get method all the tasks with index.html.erb
   def index 
-    @tasks = Task.all
+    if params[:sort] == 'desc'
+      @tasks = Task.order(status: :desc)
+    else
+      @tasks = Task.order(:status)
+    end
+    # @tasks = Task.all
   end
 
   #get method this method get user to the create but does not save to database
@@ -54,6 +59,15 @@ class TasksController < ApplicationController
     # format.html{redirect_to task_path, notice: "Task Successfully deleted"}
   end
 
+  def toggle_completion
+    @task.update(is_completed: !@task.is_completed?)
+    redirect_to tasks_path
+  end
+
+  # def toogle_status
+  #   @task = Task.find(params[:id])
+  # end
+
 
 
   private
@@ -63,14 +77,7 @@ class TasksController < ApplicationController
 
   #allow only which parameteres are accessible 
   def task_params
-    params.require(:task).permit(:name, :category_id, :is_completed)
+    params.require(:task).permit(:name, :category_id, :status)
   end
-  def is_done
-    @task =Task.find(params[:id])
-    if @task.is_completed?
-      @task.is_completed = 0
-    else
-      @task.is_completed = 1
-    end
-  end
+
 end

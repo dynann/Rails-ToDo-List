@@ -1,11 +1,10 @@
+<div style="max-width: 600px; margin: 10px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; background-color: #f9f9f9;">
 <% content_for :title, "New category" %>
 
 <h1>New category</h1>
-
-<%= render "form", category: @category %>
-
-<br>
-
-<div>
+<div style="margin-top: 10px">
+<%= render "form", category: @category, style:"padding: 20px" %>
+</div>
   <%= link_to "Back to categories", categories_path %>
 </div>
+

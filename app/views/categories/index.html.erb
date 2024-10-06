@@ -5,11 +5,12 @@
 <h1>Categories</h1>
 
 <div id="categories">
+
   <% @categories.each do |category| %>
-  <div style="border:1px solid black; border-radius: 10px;padding: 20px;"
+  <div style="border:1px solid black; border-radius: 10px;padding: 20px;">
     <%= render category %>
     <p>
-      <%= link_to "Show this category", category, style: "background-color: #00995f; color: white; padding: 10px 20px; text-decoration: none; margin: 5px 0;border-radius: 5px;"%>
+      <%= link_to "Show this category", category, style: "background-color: green; color: white; padding: 10px 20px; text-decoration: none; margin: 5px 0;border-radius: 5px;"%>
     </p>
     </div>
   <% end %>
